@@ -1,20 +1,9 @@
 import { useEffect, useState } from "react";
 import { Review } from "./Review";
+import data from "./data";
 
 function App() {
-  const [reviews, setReviews] = useState(null);
-
-  useEffect(() => {
-    try {
-      fetch("http://localhost:8000/reviews")
-        .then((res) => res.json())
-        .then((data) => {
-          setReviews(data);
-        });
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
+  const [reviews, setReviews] = useState(data);
 
   return (
     <main>
